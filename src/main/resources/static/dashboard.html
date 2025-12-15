@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2>Cryptography Learning</h2>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="algorithms.html">Algorithms</a>
+                <a href="dashboard.html" class="active">History</a>
+                <span id="adminLink" style="display: none;">
+                    <a href="admin.html">Admin Panel</a>
+                </span>
+                <button onclick="logout()" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div id="dashboardContent">
+            <h2 style="margin-top: 20px;">Encryption History</h2>
+            <div id="historyList" class="scores-list"></div>
+            
+            <h2 style="margin-top: 40px;">Algorithm Usage Statistics</h2>
+            <div id="usageStats" class="stats-grid"></div>
+            
+            <div class="stat-card" style="margin-top: 40px; margin-bottom: 20px;">
+                <h3>Total Quizzes</h3>
+                <p id="totalQuizzes">0</p>
+            </div>
+            <h2 style="margin-top: 20px;">Quiz History</h2>
+            <div id="scoresList" class="scores-list"></div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/interactive.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptography Algorithms</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2>Cryptography Learning</h2>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="algorithms.html" class="active">Algorithms</a>
+                <a href="dashboard.html">History</a>
+                <span id="adminLink" style="display: none;">
+                    <a href="admin.html">Admin Panel</a>
+                </span>
+                <button onclick="logout()" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>Cryptography Algorithms</h1>
+        <div id="algorithmsList" class="algorithms-grid"></div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/interactive.js"></script>
+    <script src="js/algorithms.js"></script>
+</body>
+</html>
+

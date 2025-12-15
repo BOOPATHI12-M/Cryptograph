@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2>Cryptography Learning</h2>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="algorithms.html">Algorithms</a>
+                <a href="dashboard.html">History</a>
+                <span id="adminLink" style="display: none;">
+                    <a href="admin.html">Admin Panel</a>
+                </span>
+                <button onclick="logout()" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div id="algorithmDetail" class="algorithm-detail"></div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('theory')">Theory</button>
+            <button class="tab-btn" onclick="showTab('steps')">Steps</button>
+            <button class="tab-btn" onclick="showTab('example')">Example</button>
+            <button class="tab-btn" onclick="showTab('formula')">Formula</button>
+            <button class="tab-btn" onclick="showTab('tool')">Encrypt/Decrypt</button>
+            <button class="tab-btn" onclick="showTab('quiz')">Quiz</button>
+        </div>
+        
+        <div id="theoryTab" class="tab-content active">
+            <div id="theoryContent"></div>
+        </div>
+        
+        <div id="stepsTab" class="tab-content">
+            <div id="stepsContent"></div>
+        </div>
+        
+        <div id="exampleTab" class="tab-content">
+            <div id="exampleContent"></div>
+        </div>
+        
+        <div id="formulaTab" class="tab-content">
+            <div id="formulaContent"></div>
+        </div>
+        
+        <div id="toolTab" class="tab-content">
+            <div class="crypto-tool">
+                <h2>Encryption/Decryption Tool</h2>
+                <div id="cryptoToolContent"></div>
+            </div>
+        </div>
+        
+        <div id="quizTab" class="tab-content">
+            <div id="quizContent"></div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/interactive.js"></script>
+    <script src="js/algorithm-detail.js"></script>
+</body>
+</html>
+

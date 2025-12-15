@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptography Learning - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2>Cryptography Learning</h2>
+            <div class="nav-links">
+                <a href="home.html" class="active">Home</a>
+                <a href="algorithms.html">Algorithms</a>
+                <a href="dashboard.html">History</a>
+                <span id="adminLink" style="display: none;">
+                    <a href="admin.html">Admin Panel</a>
+                </span>
+                <button onclick="logout()" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="hero-section">
+            <h1>Welcome to Cryptography Learning Platform</h1>
+            <p>Learn and practice various cryptography algorithms</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card reveal" data-tooltip="Explore all available cryptography algorithms">
+                <div class="feature-icon">📚</div>
+                <h3>Learn Algorithms</h3>
+                <p>Study theory, steps, examples, and formulas for various encryption algorithms</p>
+                <a href="algorithms.html" class="btn btn-primary">Explore</a>
+            </div>
+            
+            <div class="feature-card reveal" data-tooltip="Try encrypting and decrypting messages">
+                <div class="feature-icon">🔧</div>
+                <h3>Practice Encryption</h3>
+                <p>Use our interactive tools to encrypt and decrypt messages using different algorithms</p>
+                <a href="algorithms.html" class="btn btn-primary">Try It</a>
+            </div>
+            
+            <div class="feature-card reveal" data-tooltip="Test your cryptography knowledge">
+                <div class="feature-icon">📝</div>
+                <h3>Take Quizzes</h3>
+                <p>Test your knowledge with quizzes for each algorithm</p>
+                <a href="algorithms.html" class="btn btn-primary">Start Quiz</a>
+            </div>
+            
+            <div class="feature-card reveal" data-tooltip="View your learning progress and scores">
+                <div class="feature-icon">📊</div>
+                <h3>Track Progress</h3>
+                <p>View your scores and track your learning progress</p>
+                <a href="dashboard.html" class="btn btn-primary">View History</a>
+            </div>
+        </div>
+
+        <div class="algorithms-preview" style="margin-top: 40px;">
+            <h2>Cryptography Modules</h2>
+            <div class="algorithms-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="algorithm-card reveal">
+                    <h3>Caesar Cipher</h3>
+                    <p>Learn and practice the classic substitution cipher with step-by-step visualization</p>
+                    <a href="caesar.html" class="btn btn-primary">Try Caesar Cipher</a>
+                </div>
+                
+                <div class="algorithm-card reveal">
+                    <h3>AES Encryption</h3>
+                    <p>Advanced Encryption Standard with block-level animation showing SubBytes, ShiftRows, MixColumns, and AddRoundKey</p>
+                    <a href="aes.html" class="btn btn-primary">Try AES</a>
+                </div>
+                
+                <div class="algorithm-card reveal">
+                    <h3>RSA Encryption</h3>
+                    <p>Asymmetric encryption with key pair generation and visual explanation of modular exponentiation</p>
+                    <a href="rsa.html" class="btn btn-primary">Try RSA</a>
+                </div>
+                
+                <div class="algorithm-card reveal">
+                    <h3>Algorithm Visualization</h3>
+                    <p>Step-by-step visualization showing how each algorithm transforms data</p>
+                    <a href="visualization.html" class="btn btn-primary">View Visualizations</a>
+                </div>
+                
+                <div class="algorithm-card reveal">
+                    <h3>Performance Comparison</h3>
+                    <p>Compare execution times and security strength of different algorithms</p>
+                    <a href="performance.html" class="btn btn-primary">View Comparison</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/interactive.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
+

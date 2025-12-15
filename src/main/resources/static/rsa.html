@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Encryption - Cryptography Learning</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .rsa-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .input-section, .result-section, .visualization-section, .key-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .key-display {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            word-wrap: break-word;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .result-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            word-wrap: break-word;
+            font-family: monospace;
+            font-size: 14px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .rsa-steps {
+            margin-top: 20px;
+        }
+        .rsa-step {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            animation: slideInLeft 0.5s ease-out;
+        }
+        .rsa-step h4 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+        .rsa-step p {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+        .rsa-step .formula {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .key-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .key-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2>Cryptography Learning</h2>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="algorithms.html">Algorithms</a>
+                <a href="dashboard.html">History</a>
+                <button onclick="logout()" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="rsa-container">
+        <h1>RSA (Rivest-Shamir-Adleman)</h1>
+        <p class="subtitle">Asymmetric encryption algorithm based on the difficulty of factoring large numbers</p>
+
+        <div class="key-section">
+            <h2>RSA Key Pair</h2>
+            <p>Generate a new RSA key pair (2048-bit keys)</p>
+            <button onclick="generateRSAKeys()" class="btn btn-primary">Generate Key Pair</button>
+            
+            <div id="keysSection" style="display: none; margin-top: 20px;">
+                <div class="key-info">
+                    <div>
+                        <strong>Public Key (Base64):</strong>
+                        <div class="key-display" id="publicKey"></div>
+                    </div>
+                    <div>
+                        <strong>Private Key (Base64):</strong>
+                        <div class="key-display" id="privateKey"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <h2>Encrypt/Decrypt</h2>
+            <div class="form-group">
+                <label for="plaintext">Message:</label>
+                <textarea id="plaintext" rows="3" placeholder="Enter text to encrypt (keep it short for RSA)"></textarea>
+            </div>
+            <div class="btn-group">
+                <button onclick="encryptRSA()" class="btn btn-primary">Encrypt</button>
+                <button onclick="decryptRSA()" class="btn btn-secondary">Decrypt</button>
+                <button onclick="showRSAVisualization()" class="btn btn-primary">Show RSA Steps</button>
+            </div>
+        </div>
+
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h2>Result</h2>
+            <div class="result-box" id="result"></div>
+        </div>
+
+        <div class="visualization-section" id="visualizationSection" style="display: none;">
+            <h2>RSA Algorithm Explanation</h2>
+            <div class="rsa-steps" id="rsaStepsContainer"></div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/rsa.js"></script>
+</body>
+</html>

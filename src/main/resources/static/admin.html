@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2>Cryptography Learning - Admin</h2>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="algorithms.html">Algorithms</a>
+                <a href="dashboard.html">History</a>
+                <a href="admin.html" class="active">Admin Panel</a>
+                <button onclick="logout()" class="btn btn-secondary">Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>Admin Panel</h1>
+        
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="showAdminTab('algorithms')">Manage Algorithms</button>
+            <button class="tab-btn" onclick="showAdminTab('questions')">Manage Questions</button>
+            <button class="tab-btn" onclick="showAdminTab('scores')">View Scores</button>
+        </div>
+        
+        <div id="algorithmsTab" class="admin-tab-content active">
+            <h2>Algorithms Management</h2>
+            <button onclick="showAlgorithmForm()" class="btn btn-primary">Add New Algorithm</button>
+            <div id="algorithmForm" style="display: none;" class="admin-form">
+                <h3>Add/Edit Algorithm</h3>
+                <form onsubmit="saveAlgorithm(event)">
+                    <input type="hidden" id="algorithmId">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="algName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select id="algType" required>
+                            <option value="SYMMETRIC">Symmetric</option>
+                            <option value="ASYMMETRIC">Asymmetric</option>
+                            <option value="SUBSTITUTION">Substitution</option>
+                            <option value="TRANSPOSITION">Transposition</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Theory</label>
+                        <textarea id="algTheory" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Steps</label>
+                        <textarea id="algSteps" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Example</label>
+                        <textarea id="algExample" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Formula</label>
+                        <textarea id="algFormula" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" onclick="cancelAlgorithmForm()" class="btn btn-secondary">Cancel</button>
+                </form>
+            </div>
+            <div id="algorithmsList" class="admin-list"></div>
+        </div>
+        
+        <div id="questionsTab" class="admin-tab-content">
+            <h2>Quiz Questions Management</h2>
+            <button onclick="showQuestionForm()" class="btn btn-primary">Add New Question</button>
+            <div id="questionForm" style="display: none;" class="admin-form">
+                <h3>Add/Edit Question</h3>
+                <form onsubmit="saveQuestion(event)">
+                    <input type="hidden" id="questionId">
+                    <div class="form-group">
+                        <label>Algorithm</label>
+                        <select id="questionAlgorithm" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Question</label>
+                        <textarea id="questionText" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Option A</label>
+                        <input type="text" id="optionA" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Option B</label>
+                        <input type="text" id="optionB" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Option C</label>
+                        <input type="text" id="optionC" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Option D</label>
+                        <input type="text" id="optionD" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Correct Answer</label>
+                        <select id="correctAnswer" required>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Points</label>
+                        <input type="number" id="questionPoints" value="10" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" onclick="cancelQuestionForm()" class="btn btn-secondary">Cancel</button>
+                </form>
+            </div>
+            <div id="questionsList" class="admin-list"></div>
+        </div>
+        
+        <div id="scoresTab" class="admin-tab-content">
+            <h2>All User Scores</h2>
+            <div id="allScoresList" class="scores-list"></div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/interactive.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
+
